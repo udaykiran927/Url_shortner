@@ -3,7 +3,6 @@ from pymongo import MongoClient
 import string
 from  random import choice
 import validators
-import webbrowser
 
 cluster=MongoClient("mongodb+srv://udaykiran:udaykiran123@cluster0.p4c6kcv.mongodb.net/?retryWrites=true&w=majority")
 
@@ -23,10 +22,7 @@ def homepage():
 def r(key):
     res=collection.find_one({'short-val':key})
     org_url=res['original-url']
-    webbrowser.open(org_url,new=2)
-    
-
-    return render_template("homepage.html")
+    return redirect(org_url)
 
     
 @app.route('/retrieve',methods=["POST","GET"])
