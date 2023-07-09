@@ -23,7 +23,7 @@ def homepage():
 def r(key):
     res=collection.find_one({'short-val':key})
     org_url=res['original-url']
-    webbrowser.open(org_url,"_self")
+    webbrowser.open(org_url)
     
 
     return render_template("homepage.html")
