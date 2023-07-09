@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<center><h1 style="color: crimson;">The Previous Shortened URL's</h1></center>
+<center>
+    <table border="2">
+    <ol>
+        <tr>
+            <th>Original Url</th>
+            <th>Shorternd url</th>
+        </tr>
+        {% for i in k %}
+        <tr>
+            <td>{{i}}</td>
+            <td>{{k[i]}}</td>
+        </tr>
+        {% endfor %}
+    </ol>
+</table>
+</center>
+{% endblock %}

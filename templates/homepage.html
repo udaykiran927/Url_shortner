@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+<br>
+<div class="form">
+    <center><marquee><h2><b>{{msg}}</b></h2></marquee></center>
+    <form class="login-form" action="{{ url_for('retrieve')}}" method="POST">
+        <center><h1 class="main-heading">URL SHORTERN</h1>
+        <input type="text" name="url"placeholder="Enter or paste the url" required />
+        <button><b><i>Shortern</i></b></button>
+        {% if shorted %}
+        <div style="margin-top: 50px; text-align: center;">
+            <p style="font-size: 1.2em;">Your shortened URL is : {{shorted}}</p>
+            <a href="{{ shorted }}" style="font-size: 1.2em;">{{ shorted }}</a><br><br>
+            <center><button onclick="copyToClipboard('{{ shorted }}')"><b><i>Copy to clipboard</i></b></button></center>
+        </div>
+        {% endif %}
+    </form>
+</div>
+
+
+<script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('URL copied to clipboard!');
+        }, function() {
+            alert('Could not copy URL to clipboard!');
+        });
+    }
+</script>
+
+{% endblock %}
